@@ -1,0 +1,100 @@
+/* Header container */
+.app-header {
+  display: flex;
+  justify-content: space-between; /* Space between logo and profile */
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #2c5364, #203a43, #0f2027); /* Dark gradient */
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo section */
+.app-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+}
+
+.app-logo i {
+  font-size: 2rem;
+  color: #4f77ff; /* Accent color for icon */
+}
+
+/* User profile section */
+.app-use-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between name and profile icon */
+}
+
+.logged-user-name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 4px;
+}
+
+.logged-user-Profile {
+  width: 40px;
+  height: 40px;
+  background: #4f77ff; /* Profile circle background */
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.app-sidebar {
+  width: 360px; /* Standard sidebar width */
+  height: 100%; /* Full height of viewport */
+  background: linear-gradient(135deg, #1f1f1f, #2c2c2c); /* Dark theme */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed; /* Stays fixed on the left */
+  z-index: 1000;
+  overflow-y: auto; /* Scroll if content exceeds height */
+}
+.user-search {
+  display: flex;
+  align-items: center;
+  margin-left: 2%;
+  background: #2c2c2c; /* Dark theme background */
+  border-radius: 25px;
+  padding: 10px 10px;
+  width: 85%; /* Adjust width as needed */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Input field */
+.user-input {
+
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  width:125%;
+}
+
+/* Search icon button */
+.user-search-btn {
+  color: #093adc; /* Accent color */
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 10px;
+}
+
+.user-search-btn:hover {
+  color: #38eacf; /* Hover effect */
+}
