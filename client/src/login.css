@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px;
 }
 
 /* Card */
@@ -44,8 +43,8 @@
 
 .form-row {
   display: flex;
-  width:68vh ;
-  gap: 15px;
+  width:100%;
+  gap: 12px;
 }
 
 input {
@@ -73,7 +72,7 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap:25px;
-  width: 64vh;
+  width: 94%;
 }
 /* Button */
 .button-container{
@@ -82,7 +81,6 @@ input::placeholder {
   align-items: center;
 }
 button {
-
   padding: 15px;
   background: linear-gradient(135deg, #3ed6c0, #4f77ff);
   color: #ffffff;
@@ -93,7 +91,6 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
-  width: 45vh;
 }
 
 button:hover {

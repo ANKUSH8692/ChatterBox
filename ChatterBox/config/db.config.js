@@ -9,8 +9,8 @@ db.on('connected',()=>{
     console.log("db is connected");
 });
 
-db.on('err',()=>{
-    console.log("DB Connection failed");
+db.on('error',(err)=>{
+    console.log("DB Connection failed",err);
 })
 
 module.exports=db;

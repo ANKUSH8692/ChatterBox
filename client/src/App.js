@@ -6,8 +6,9 @@ import Login from './pages/login'
 import Signup from './pages/signup'
 import ProtectedRoute from "./components/protected_Router.js";
 import Loader from "./components/loader.js";
-
+import Profile from "./pages/profile/index.js";
 import { useSelector } from "react-redux";
+
 function App() {
   const {loader} =useSelector(state=>state.loaderReducer);
   return (
@@ -24,6 +25,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Home/>
+              </ProtectedRoute>
+            }
+            ></Route>
+            <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile/>
               </ProtectedRoute>
             }
             ></Route>
