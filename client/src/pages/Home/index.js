@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
 
-const socket = io('http://localhost:5001');
+const socket = io('https://chatterbox-server-5pum.onrender.com');
 
 export default function HomePage() {
 
