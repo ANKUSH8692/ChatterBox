@@ -9,11 +9,15 @@ const messageSchema=new mongoose.Schema({
     },
     text:{
         type:String,
-        required:true
+        required:false
     },
     read:{
         type:Boolean,
         default:false
+    },
+    image:{
+        type:String,
+        required:false
     }
 },{timestamps:true});
 module.exports=mongoose.model("messages",messageSchema);

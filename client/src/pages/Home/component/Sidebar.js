@@ -1,22 +1,29 @@
 import { useState } from "react";
 import Searchbar from "./Searchbar.js";
-
+import Userslist from "./userlist.js";
 import "./../../../home.css"
 
-export default function SideBar(){
-    const [searchKey,setSerachKey]=useState('');
+
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+export default function SideBar({socket,onlineUsers}){
+    const [searchKey,setSearchKey]=useState('');
 
     return (
         
-        <div>
+        
             <div className="app-sidebar">
                 <Searchbar 
-                    searchKey={setSerachKey}
-                    setSerachKey={setSerachKey}
-
+                    searchKey={searchKey}
+                    setSearchKey={setSearchKey}
                 />
 
+            <div className="list">
+                <Userslist searchKey={searchKey} socket={socket} onlineUsers=
+                {onlineUsers}/>
             </div>
+                
+            
         </div>
     );
 }

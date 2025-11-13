@@ -8,28 +8,26 @@ const Message =require('../models/message.js');
 router.post('/new-message', authMiddleware, async (req, res) => {
     try {
         
-        
         const new_message = new Message(req.body);
         const saved_message = await new_message.save();
-
         const updatedChat = await chat.findOneAndUpdate({
             _id: req.body.chatId
         },{
                 lastMessage:saved_message._id,
-                $inc:{unreadMessage:1}
+                $inc:{unreadMessage: 1}
             }
         );
-        console.log("Updated chat:", updatedChat);
 
 
         res.status(201).send({
             message: "Successfully sent message",
             success: true,
-            data: updatedChat
+            data: saved_message
         });
     } catch (err) {
         console.error("Error in new-message:", err);
         res.status(400).send({
+
             message: err.message,
             success: false,
         });

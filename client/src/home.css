@@ -1,100 +1,508 @@
-/* Header container */
-.app-header {
-  display: flex;
-  justify-content: space-between; /* Space between logo and profile */
-  align-items: center;
-  padding: 15px 30px;
-  background: linear-gradient(135deg, #2c5364, #203a43, #0f2027); /* Dark gradient */
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* ============================================
+   GLOBAL & BASE STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Logo section */
-.app-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between icon and text */
-}
-
-.app-logo i {
-  font-size: 2rem;
-  color: #4f77ff; /* Accent color for icon */
-}
-
-/* User profile section */
-.app-use-profile {
-  display: flex;
-  align-items: center;
-  gap: 15px; /* Space between name and profile icon */
-}
-
-.logged-user-name {
-  font-size: 1.5rem;
-  font-weight: 500;
-  padding: 4px;
-}
-
-.logged-user-Profile {
-  width: 40px;
-  height: 40px;
-  background: #4f77ff; /* Profile circle background */
-  color: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-.app-sidebar {
-  width: 360px; /* Standard sidebar width */
-  height: 100%; /* Full height of viewport */
-  background: linear-gradient(135deg, #1f1f1f, #2c2c2c); /* Dark theme */
-  color: #ffffff;
+.home-page {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 20px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: fixed; /* Stays fixed on the left */
-  z-index: 1000;
-  overflow-y: auto; /* Scroll if content exceeds height */
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
 }
+
+/* ============================================
+   HEADER STYLES
+   ============================================ */
+
+/* Flex Container */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(to right, #1d4ed8, #8b5cf6);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.logo:hover {
+  transform: scale(1.1) rotate(12deg) skewY(2deg);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(to right, #fde047, #fb7185);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* User Info Section */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.user-name {
+  display: none;
+  color: white;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  transition: all 0.5s;
+}
+
+.user-name:hover {
+  background-color: white;
+  color: #9333ea;
+  transform: scale(1.05) translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s;
+}
+
+.profile-img {
+    /* Sizing for the circular image */
+    width: 60px;
+    height: 60px;
+    background-color: #2d3748;
+    /* Make it a perfect circle */
+    border-radius: 50%;
+    
+    /* Give it a distinct border/outline as seen in the image */
+    border: 3px solid white; 
+    
+    /* Ensure the image covers the area without distortion */
+    object-fit: cover;
+    
+    /* Optional: Add a subtle shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    
+    /* Align image content */
+    display: block; 
+}
+
+.profile-icon:hover {
+  transform: scale(1.25) rotate(12deg);
+  background: linear-gradient(to right, #fde68a, #fdba74);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.profile-icon:active {
+  transform: scale(0.9) rotate(0deg);
+}
+
+/* Media Query for sm breakpoint */
+#logout-btn{
+  width: 100%;
+  height: 100%;
+  color: #2d3748;
+  border-radius: 100%;
+}
+
+/* ============================================
+   MAIN CONTENT LAYOUT
+   ============================================ */
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 80px);
+  gap: 16px;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================
+   SIDEBAR STYLES
+   ============================================ */
+
+/* Default: hidden on all screens */
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 38%;
+  position: relative;
+}
+
+/* Show only on small screens */
+
+
+.app-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: rgba(154, 238, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+/* ============================================
+   SEARCH BAR STYLES
+   ============================================ */
+
 .user-search {
   display: flex;
   align-items: center;
-  margin-left: 2%;
-  background: #2c2c2c; /* Dark theme background */
-  border-radius: 25px;
-  padding: 10px 10px;
-  width: 85%; /* Adjust width as needed */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  background: white;
+  border-radius: 30px;
+  padding: 6px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-/* Input field */
-.user-input {
+.user-search:focus-within {
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+  border-color: #667eea;
+}
 
+.user-input {
+  flex: 1;
   border: none;
   background: transparent;
-  color: #ffffff;
-  width:125%;
+  color: #2d3748;
+  padding: 10px 16px;
+  font-size: 15px;
+  outline: none;
+  font-weight: 500;
+  height: 40px;
 }
 
-/* Search icon button */
+.user-input::placeholder {
+  color: #a0aec0;
+  font-weight: 400;
+}
+
 .user-search-btn {
-  color: #093adc; /* Accent color */
-  font-size: 1.2rem;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-size: 16px;
   cursor: pointer;
-  transition: color 0.3s ease;
-  padding: 10px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .user-search-btn:hover {
-  color: #38eacf; /* Hover effect */
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ============================================
+   USER LIST STYLES
+   ============================================ */
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.user-search-filter {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.user-search-filter:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+  transform: translateX(8px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.filterd-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.filter-user-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.Logo_user {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.user-profile-pic-image,
+.user-deafult-profile-pic {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.user-deafult-profile-pic {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-search-filter:hover .user-profile-pic-image,
+.user-search-filter:hover .user-deafult-profile-pic {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Online indicator */
+.Logo_user::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #10b981;
+  border-radius: 50%;
+  bottom: 2px;
+  right: 2px;
+  border: 3px solid white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: pulse-online 2s ease-in-out infinite;
+}
+
+@keyframes pulse-online {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+.filter-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.user-display-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-display-email {
+  font-size: 14px;
+  color: #718096;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.last-message {
+  font-size: 14px;
+  color: #4a5568;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.you-prefix {
+  color: #667eea;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.time_message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 60px;
+}
+
+.time_message > div:first-child {
+  min-width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.time_message > div:last-child {
+  font-size: 12px;
+  color: #718096;
+  font-weight: 500;
+}
+
+.user-start-chat {
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.user-start-chat-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.user-start-chat-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.user-start-chat-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   SCROLLBAR STYLES
+   ============================================ */
+
+.list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+@media (min-width: 640px) {
+  .user-name {
+    display:block;
+  }
+  
+}
+
+
+/* Mobile screens */
+@media (max-width: 768px) {
+
+  .sidebar-container {
+    position: absolute;
+    width: 70%;
+    height: 100vh;
+    background: white;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    border-right: 2px solid #ddd;
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+  }
 }

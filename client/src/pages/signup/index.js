@@ -14,6 +14,25 @@ function Signup() {
     email: '',
     password: ''
   })
+  const [passwordError, setPasswordError] = React.useState("");
+
+  // Password validation function
+  function validatePassword(password) {
+    const specialChars = "!@#$%^&*()_+\\-={}\\[\\]:;\"'<>,.?/`~|";
+    if(password.length === 0){
+      return "Password is required.";
+    }
+    if (password.length < 8) {
+      return "Password must be at least 8 characters long.";
+    }
+    if (!/[0-9]/.test(password)) {
+      return "Password must contain at least one number.";
+    }
+    if (!new RegExp("[" + specialChars + "]").test(password)) {
+      return "Password must contain at least one special character.";
+    }
+    return ""; // No errors
+  }
   async function onFormSubmit(event) {
     event.preventDefault();
 
@@ -69,10 +88,18 @@ function Signup() {
           <input type="password" placeholder="Password"
             value={user.password}
             onChange={(e) => {
-              setUser({ ...user, password: e.target.value })
-            }}
+                const newPassword = e.target.value;
+                setUser({ ...user, password: newPassword });
+
+                // Live validation as user types
+                const error = validatePassword(newPassword);
+                setPasswordError(error);
+              }}
           />
           </div>
+          {passwordError && (
+            <p style={{ color: "#d96e0a", marginTop: "3px",fontSize:"18px" }}>{passwordError}</p>
+          )}
           <div className="button-container">
             <button type="submit">Sign Up</button>
           </div>

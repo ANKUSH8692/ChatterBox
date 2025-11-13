@@ -7,7 +7,8 @@ import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../../redux/loaderSlice.js";
 
 import "../../login.css"
-function Login() {
+
+const Login=()=> {
     const dispatch = useDispatch();
     const [user, setUser] = React.useState({
         email: '',
@@ -19,7 +20,7 @@ function Login() {
             dispatch(showLoader());
             const response = await loginUser(user);
             dispatch(hideLoader())
-            console.log("Login API Response:", response);
+
 
             if (response?.success) {  // FIX: check success not status
                 toast.success(response.message || "Login successful");
@@ -27,7 +28,6 @@ function Login() {
                 const token = response?.token;
                 if (token) {
                     localStorage.setItem('token', token); // FIX: use lowercase 'token'
-                    console.log("Token stored:", token);
                     window.location.href = "/";
                 } else {
                     toast.error("Token not found in response");
@@ -55,7 +55,7 @@ function Login() {
             <div className="signup-card">
                 <h1>Login Account</h1>
                 <form className="signup-form" onSubmit={onFormSubmit}>
-                    <div className=""></div>
+                    <div className="form-pass">
                     <input type="email" placeholder="Email"
                         value={user.email}
                         onChange={(e) => {
@@ -68,6 +68,7 @@ function Login() {
                             setUser({ ...user, password: e.target.value })
                         }}
                     />
+                    </div>
                     <div className="button-container">
                         <button type="submit">Login</button>
                     </div>

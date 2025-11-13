@@ -1,5 +1,0 @@
-mongodb+srv://Chat-user:Ankush8692@cluster0.bzy4ejb.mongodb.net/Users
-
-usetname Chat-user
-
-pass Ankush8692
