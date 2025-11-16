@@ -2,9 +2,9 @@ const cloudinary = require('cloudinary').v2;
 
 try {
     cloudinary.config({
-        cloud_name: 'dnflur8ec',
-        api_key: '956926461534744',
-        api_secret: 'cw2-DEDVTZD8x80WM0cLCJnbP-o'
+        cloud_name: process.env.Cloudinary_Name,
+        api_key: process.env.Cloudinary_API_Key,
+        api_secret: process.env.Cloudinary_API_Secret   
     });
     console.log("Cloudinary connected successfully");
 } catch (err) {
